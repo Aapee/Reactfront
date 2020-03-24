@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-
+import MaterialTable from 'material-table';
 
 
 export default function Customerlist(){
@@ -13,9 +13,24 @@ export default function Customerlist(){
         .then(data => setCustomers(data.content))
     
     }
+
+       const columns  = [
+        { title: 'firstname', field: 'firstname'},
+        { title: 'lastname', field: 'lastname'},
+        { title: 'streetaddress"', field: 'streetaddress'},
+        { title: 'postcode', field: 'postcode'},
+        { title: 'city', field: 'city'},
+        { title: 'email', field: 'email'},
+        { title: 'phone', field: 'phone'}
+       ]
+
+
     return(
         <div>
-            
+            <MaterialTable data={customer} columns={columns} 
+        title="All customers"
+        
+            />
         </div>
     );
 }
