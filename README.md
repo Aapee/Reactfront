@@ -1,7 +1,7 @@
 Installed libraries:
 Material UI,
 MaterialUI table: npm install material-table --save
-
+MaterialUI icons: npm install @material-ui/icons --save
 
 
 
