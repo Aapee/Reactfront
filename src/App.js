@@ -1,5 +1,6 @@
-import React from 'react';
-import Customerlist from './components/Customerlist';
+import React from "react";
+import Customerlist from "./components/Customerlist";
+
 
 function App() {
   return (
