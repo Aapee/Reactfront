@@ -18,7 +18,6 @@ import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import Addcustomer from "./Addcustomer";
-import SportsHandballIcon from '@material-ui/icons/SportsHandball';
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -51,9 +50,10 @@ export default function Customerlist() {
 
   //GET
   const fetchData = () => {
-    fetch("https://customerrest.herokuapp.com/api/customers")
+    fetch("https://customerrest.herokuapp.com/api/trainings")
       .then(response => response.json())
       .then(data => setCustomers(data.content));
+    console.log("test");
   };
 
   //DELETE DELETE THE CUSTOMER
@@ -115,14 +115,7 @@ export default function Customerlist() {
             icon: DeleteOutline,
             tooltip: "Delete User",
             onClick: (event, rowData) => deleteCustomer(rowData.links[0].href)
-          },
-          rowData => ({
-            icon: SportsHandballIcon,
-            tooltip: 'Add training',
-
-            // miten kutsutaan erillistä komponenttia onClick nappia painamalla?
-            // onClick: saveTraining={saveTraining}
-          })
+          }
         ]}
         //MUOKKAUSTOIMINNALLISUUS
         editable={{

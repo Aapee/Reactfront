@@ -40,7 +40,7 @@ export default function AddCustomer(props) {
   return (
     <div>
       <Button
-        style={{ margin: 10 }}
+        style={{ margin: 10, alignItems:'center'}}
         variant="contained"
         color="primary"
         onClick={handleClickOpen}
