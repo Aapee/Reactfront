@@ -9,6 +9,7 @@ import PersonPinIcon from "@material-ui/icons/PersonPin";
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import AccessibilityIcon from '@material-ui/icons/Accessibility';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -35,9 +36,9 @@ export default function IconLabelTabs() {
         textColor="secondary"
         aria-label="icon label tabs example"
       >
-        <Tab icon={<AssignmentIndIcon />} label="Customers" />
-        <Tab icon={<AccessibilityIcon />} label="Trainings" />
-        <Tab icon={<CalendarTodayIcon />} label="Calendar" />
+        <Tab icon={<AssignmentIndIcon />} component={Link} to="/Customer" label="Customers" />
+        <Tab icon={<AccessibilityIcon />} component={Link} to="/Trainings"  label="Trainings" />
+        <Tab icon={<CalendarTodayIcon />} component={Link} to="/Calendar"  label="Calendar" />
       </Tabs>
     </Paper>
     
