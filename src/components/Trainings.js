@@ -100,8 +100,6 @@ export default function Trainingslist() {
 
   return (
     <div>
-      <Addcustomer saveTraining={saveTraining} />
-
       <MaterialTable
         data={trainings}
         columns={columns}

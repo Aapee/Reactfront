@@ -101,9 +101,10 @@ export default function Customerlist() {
     {}
   ];
 
-
   return (
     <div>
+      <Addcustomer saveCustomer={saveCustomer} />
+
       <MaterialTable
         data={customer}
         columns={columns}
@@ -117,7 +118,7 @@ export default function Customerlist() {
           },
           rowData => ({
             icon: SportsHandballIcon,
-            tooltip: "Add training",
+            tooltip: "Add training"
             // onClick:(event,rowData)=>saveCustomer={saveCustomer}
           })
         ]}
