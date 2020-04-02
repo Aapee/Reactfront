@@ -15,8 +15,6 @@ function App() {
           <Route exact path="/Calendar" component={() => <div><h3>in progress</h3></div>} />
         </Switch>
       </BrowserRouter>
-      {/* <Trainings /> */}
-      {/* <Customerlist /> */}
     </div>
   );
 }
