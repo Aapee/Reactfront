@@ -18,6 +18,7 @@ import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import Addcustomer from "./Addcustomer";
+import moment from "moment";
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -43,8 +44,8 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-export default function Customerlist() {
-  const [customer, setCustomers] = useState([]);
+export default function Trainingslist() {
+  const [trainings, setTrainings] = useState([]);
 
   useEffect(() => fetchData(), []);
 
@@ -52,12 +53,12 @@ export default function Customerlist() {
   const fetchData = () => {
     fetch("https://customerrest.herokuapp.com/api/trainings")
       .then(response => response.json())
-      .then(data => setCustomers(data.content));
+      .then(data => setTrainings(data.content));
     console.log("test");
   };
 
-  //DELETE DELETE THE CUSTOMER
-  const deleteCustomer = link => {
+  //DELETE DELETE THE Training
+  const deleteTraining = link => {
     if (window.confirm("Are you sure you want to delete?"))
       fetch(link, { method: "DELETE" })
         .then(res => fetchData())
@@ -65,56 +66,52 @@ export default function Customerlist() {
   };
 
   //POST ADD NEW CUSTOMER
-  const saveCustomer = customer => {
-    fetch("https://customerrest.herokuapp.com/api/customers", {
+  const saveTraining = trainings => {
+    fetch("https://customerrest.herokuapp.com/api/trainings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(customer)
+      body: JSON.stringify(trainings)
     })
       .then(res => fetchData())
       .catch(err => console.error(err));
   };
 
   //Put edit customer
-  const updateCustomer = (customer, link) => {
+  const updateTraining = (trainings, link) => {
     fetch(link, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(customer)
+      body: JSON.stringify(trainings)
     })
       .then(res => fetchData())
       .catch(err => console.error(err));
   };
 
   const columns = [
-    { title: "firstname", field: "firstname" },
-    { title: "lastname", field: "lastname" },
-    { title: 'streetaddress"', field: "streetaddress" },
-    { title: "postcode", field: "postcode" },
-    { title: "city", field: "city" },
-    { title: "email", field: "email" },
-    { title: "phone", field: "phone" },
+    { title: "activity", field: "activity" },
+    { title: "duration", field: "duration" },
+    { title: "date", field: "date" },
     {}
   ];
 
   return (
     <div>
-      <Addcustomer saveCustomer={saveCustomer} />
+      <Addcustomer saveTraining={saveTraining} />
 
       <MaterialTable
-        data={customer}
+        data={trainings}
         columns={columns}
         icons={tableIcons}
-        title="All customers"
+        title="Trainings"
         actions={[
           {
             icon: DeleteOutline,
-            tooltip: "Delete User",
-            onClick: (event, rowData) => deleteCustomer(rowData.links[0].href)
+            tooltip: "Delete Training",
+            onClick: (event, rowData) => deleteTraining(rowData.links[1].href)
           }
         ]}
         //MUOKKAUSTOIMINNALLISUUS
@@ -123,10 +120,10 @@ export default function Customerlist() {
             new Promise((resolve, reject) => {
               setTimeout(() => {
                 {
-                  const data = customer;
+                  const data = trainings;
                   const index = data.indexOf(oldData);
                   data[index] = newData;
-                  updateCustomer(newData, newData.links[1].href);
+                  updateTraining(newData, newData.links[1].href);
                   console.log("newData: ", index);
                 }
               }, 600);

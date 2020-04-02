@@ -10,10 +10,9 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/" component={Customerlist} />
           <Route exact path="/Customer" component={Customerlist} />
-          <Route exact path="/Trainings" component={() => <div>TERVE</div>} />
-          <Route exact path="/Calendar" component={() => <div>MORO</div>} />
+          <Route exact path="/Trainings" component={Trainings} />
+          <Route exact path="/Calendar" component={() => <div><h3>in progress</h3></div>} />
         </Switch>
       </BrowserRouter>
       {/* <Trainings /> */}

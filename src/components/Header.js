@@ -32,12 +32,12 @@ export default function IconLabelTabs() {
         value={value}
         onChange={handleChange}
         variant="fullWidth"
-        indicatorColor="secondary"
-        textColor="secondary"
+        indicatorColor="primary"
+        textColor="primary"
         aria-label="icon label tabs example"
       >
         <Tab icon={<AssignmentIndIcon />} component={Link} to="/Customer" label="Customers" />
-        <Tab icon={<AccessibilityIcon />} component={Link} to="/Trainings"  label="Trainings" />
+        <Tab icon={<AccessibilityIcon />} component={Link} to="/Trainings" label="Trainings" />
         <Tab icon={<CalendarTodayIcon />} component={Link} to="/Calendar"  label="Calendar" />
       </Tabs>
     </Paper>

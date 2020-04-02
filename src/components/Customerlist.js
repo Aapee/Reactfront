@@ -18,7 +18,7 @@ import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import Addcustomer from "./Addcustomer";
-import SportsHandballIcon from '@material-ui/icons/SportsHandball';
+import SportsHandballIcon from "@material-ui/icons/SportsHandball";
 
 const tableIcons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -101,10 +101,9 @@ export default function Customerlist() {
     {}
   ];
 
+
   return (
     <div>
-      <Addcustomer saveCustomer={saveCustomer} />
-
       <MaterialTable
         data={customer}
         columns={columns}
@@ -118,10 +117,8 @@ export default function Customerlist() {
           },
           rowData => ({
             icon: SportsHandballIcon,
-            tooltip: 'Add training',
-
-            // miten kutsutaan erillistä komponenttia onClick nappia painamalla?
-            // onClick: saveTraining={saveTraining}
+            tooltip: "Add training",
+            // onClick:(event,rowData)=>saveCustomer={saveCustomer}
           })
         ]}
         //MUOKKAUSTOIMINNALLISUUS
